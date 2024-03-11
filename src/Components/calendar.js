@@ -112,7 +112,7 @@ export const Calendar = () => {
                     <FormGroup>
                         <FormControlLabel
                             sx={{height: 25, fontSize: 12}}
-                            control={<Checkbox sx={{height: 15}} icon={<RadioButtonUnchecked sx={{fontSize: 15, marginLeft: 1}}/>} checkedIcon={<RadioButtonCheckedOutlined/>}/>}
+                            control={<Checkbox sx={{height: 15}} icon={<RadioButtonUnchecked sx={{fontSize: 15, marginLeft: 1}}/>} checkedIcon={<RadioButtonCheckedOutlined sx={{fontSize: 15, marginLeft: 1}}/>}/>}
                             label={<Typography fontSize={10} fontWeight={500}>Show registered events only</Typography>}
                         />
                     </FormGroup>

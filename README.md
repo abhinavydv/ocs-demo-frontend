@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# OCS task for Tech Cell Manager
+This is a simple calendar application that shows day wise events. It is built using React and MUI for frontend and Node.js + Express + MySQL for backend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## URL
+- [OCS Calendar](https://ocs.iith-ac.in/calendar)
 
-## Available Scripts
+## Design, Technology and commands used
+- Frontend
+    - Technology
+        - React
+        - MUI
+        - Axios
+    - Design
+        - The frontend is designed using MUI components to meet the specfications described in the task.
+        - It is divided into components for better maintainability and reusability.
+        - MUI Box, Typography, Card, Button and icons are extensively used.
+        - The calendar is yet another MUI component but the cells are customized to show the count of the events.
+        - The day view and events list is also designed using MUI components (Mostly Box and Typography).
+    - Commands
+        - `npx create-react-app calendar` to create the react app
+        - `npm start` to run the application in dev mode
+        - `npm run build` to build the application
+        - `scp -r build/* user@server:/path/to/destination` to copy the build to the server
+        - NginX setup
+            - `sudo apt-get install nginx`
+            - `vim /etc/nginx/sites-available/ocs.iith-ac.in` to edit conf files
+            - `sudo ln -s /etc/nginx/sites-available/ocs.iith-ac.in /etc/nginx/sites-enabled`
+            - `sudo nginx -t` to check for errors
+            - `sudo systemctl restart nginx` to restart the server
+- Backend
+    - Technology
+        - Node.js
+        - Express
+        - MySQL
+        - Sequelize
+    - Design
+        - The backend is designed using Node.js and Express.
+        - It is divided into routes, controllers and models for better maintainability and reusability.
+        - Sequelize is used as the ORM for MySQL.
+        - The routes are designed to handle the requests for the events.
+        - The controllers are designed to handle the requests and send the response.
+        - The models are designed to interact with the database.
+        - The sequelize connects to the GCP MySQL server over internet through password authentication.
+        - The username, hostname and password are stored in .env file for security reasons.
+    - Commands
+        - Node setup
+            - `npm init -y`
+            - `yarn`
+            - `npm install nodemon`
+            - `nodemon index` to run the application
+        - Certificates
+            - `certbot certonly` and entered domain names
+- Database server
+    - Rented GCP MySQL
+    - allowed access to the MySQL server from the IP address of the backend server
+    - The database has a table to store the events and their details.
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Hosting
+    - Rented a server from GCP and installed Ubuntu 22.04 LTS. This works as both frontend and backend servers. Frontend in on port 443 and backend on port 5000.
+    - The frontend is hosted on the server using NginX.
+    - The backend is hosted on the server using Node.js.
+    - The database is hosted on GCP.
+    - The domain is from hostinger.
